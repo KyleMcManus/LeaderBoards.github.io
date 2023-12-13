@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+    <div id="addGame">
+        <a href="AddGamePage.html">Link to add game</a>
+    </div>
+    <table>
+		<tr>
+			<th>Game Name</th>
+			<th>Platform</th>
+		</tr>
+		<tr>
+			<td>Sonic Mania</td>
+			<td>Switch</td>
+		</tr>
+		<tr>
+			<td>Hollow Knight</td>
+			<td>PC</td>
+		</tr>
+	</table>
+	<button onclick="">New Game</button>
+<script>
+        window.onload = function(){
+            console.log("hi");
+            gofetch();
+        }
+
+    function gofetch(){
+        
+        var gameName = document.getElementById("gameName");
+        fetch("https://lime-faithful-hippo.cyclic.app/api/games")
+        .then(function(response){
+        return response.json();
+    })
+        .then(function(data){
+        console.log(data);
+        data.forEach(element => {
+            gameName += element.text += "<br><br>";
+        });
+    });
+}
+
+
+
+
+
+</script>
+</body>
+</html>
